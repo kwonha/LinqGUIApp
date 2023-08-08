@@ -28,16 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.DataSource = this.productBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(615, 446);
@@ -58,7 +63,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(179, 142);
             this.button2.TabIndex = 2;
-            this.button2.Text = "이름 내림차순";
+            this.button2.Text = "이름 내림차순 보기";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -67,8 +72,12 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(179, 142);
             this.button3.TabIndex = 3;
-            this.button3.Text = "1500원 이상 가격";
+            this.button3.Text = "1500원 이상 비싼 순서로 보기";
             this.button3.UseVisualStyleBackColor = true;
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(LinqGUIApp.Product);
             // 
             // Form1
             // 
@@ -81,7 +90,9 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "3202 권하은";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -92,6 +103,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.BindingSource productBindingSource;
     }
 }
 
